@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Flocons {
 
-	//modif 1 in remote
+	//modif 2 in remote
 	public static void main(String[] args) {
 
 		
