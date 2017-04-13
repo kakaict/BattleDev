@@ -17,6 +17,9 @@ import java.util.Scanner;
 public class Gants {
 
 	//add in branch Dev
+	
+	//modif 1 remote
+	//modif 1 local
 
 	public static void main(String[] args) {
 
