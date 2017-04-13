@@ -1,2 +1,3 @@
-just an excecices pour le concours BattleDev
+les excecices pour le concours BattleDev 2016
+
 
