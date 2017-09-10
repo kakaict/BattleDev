@@ -32,7 +32,7 @@ class MyMath {
 			@Override
 			public boolean check(int a) {
 				int t = a/2;
-		          for (int i = 0; i < t; i++){
+		          for (int i = 2; i < t; i++){
 		              if (a%i ==0){
 		                 return false;
 		              }
@@ -63,7 +63,16 @@ class MyMath {
 
 public class Lamda {
 	
-	
+	public static void main(String... args){
+
+		System.out.println( new MyMath().isOdd().check(52));
+		
+		System.out.println( new MyMath().isPrime().check(61));
+		
+		System.out.println( new MyMath().isPalindrome().check(101));
+		
+
+	}
 
 }
 
