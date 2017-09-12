@@ -3,7 +3,7 @@ package hackerrank;
 
 /**
  *
- *khaitq on 10 sept. 2017
+ *@author khaitq on 10 sept. 2017
  */
 
 
