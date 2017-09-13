@@ -1,6 +1,7 @@
 package creackingCode.recusive;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 /**
@@ -26,67 +27,80 @@ public class SubSet {
 		
 		List<Set<String>> list = find(s);
 		
+		list.sort(new Comparator<Set<String>>() {
+			@Override
+			public int compare(Set<String> o1, Set<String> o2) {
+				return o1.size() - o2.size() ;
+			}
+		});
+		
 		list.forEach(set -> {
 			System.out.print(set);
 			System.out.println();
 		});
 	}
 	
-	public static List<Set<String>>  findabc(Set<String> set){
-		List<Set<String>> result = new ArrayList<Set<String>>();
-		return result;
-	}
-	
 	public static List<Set<String>>  find(Set<String> set){
 		
 		List<Set<String>> result = new ArrayList<Set<String>>();
-		
+
 		if (set.size() == 2){
 			set.forEach(s -> {
 				Set<String> e = new HashSet<String>();
 				e.add(s);
 				result.add(e);
 			});
+			return result;
 		}
+		
 		
 		if (set.size() > 2) {
 			
-				
-				String[] array = (String[]) set.toArray();
-				String last = array[array.length - 1];
-				set.remove(last);
-				
-				findSubSet(result, set, last);
+			String[] array = new String[set.size()]; 
+			set.toArray(array);
+			String last = array[array.length - 1];
+			set.remove(last);
+			
+			result.addAll(find(set));
+			
+			findSubSet(result, last);
 			
 		}
 		
 		return result;
 	}
 	
-	public static List<Set<String>> findSubSet(List<Set<String>> list, Set<String> s, String n){
+	public static List<Set<String>> findSubSet(List<Set<String>> list, String n){
 		
-		Set<String> stong = new HashSet<String>();
-		
-		
-		for (Set<String> sm : list) {
-			sm.forEach(xx -> {
-				stong.add(xx);
+		System.out.println("start n = " + n);
+			
+			Set<String> stong = new HashSet<String>();
+
+			for (Set<String> sm : list) {
+				sm.forEach(xx -> {
+					stong.add(xx);
+				});
+			}
+			
+			
+			List<Set<String>> slist = new ArrayList<Set<String>>();
+			list.forEach(setx ->{
+				Set<String> vv = setx.stream().map(String::new).collect(Collectors.toSet());
+				vv.add(n);
+				slist.add(vv);
 			});
-		}
+			
+			if (stong.size() >0)
+			list.add(stong);
+			
+			Set<String> sn = new HashSet<String>();
+			sn.add(n);
+			list.add(sn);
+			
+			list.addAll(slist);
+			
 		
-		Set<String> sn = new HashSet<String>();
-		sn.add(n);
-		list.add(sn);
-		
-		s.forEach(element -> {
-			Set<String> ss = new HashSet<String>();
-			ss.add(element);
-			ss.add(n);
-			list.add(ss);
-		});
-		
-		if (stong.size() >0)
-		list.add(stong);
+		System.out.println("get list  = " + list);
 		
 		return list;
 		
