@@ -1,3 +1,7 @@
-les excecices pour le concours BattleDev 2016
+Coding exercises for Programmer 
 
++Hackerrank
 
++Classical 
+
++Codingmae
