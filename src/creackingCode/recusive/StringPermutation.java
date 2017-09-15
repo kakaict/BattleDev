@@ -3,6 +3,8 @@ package creackingCode.recusive;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 
 /**
  *
@@ -11,9 +13,8 @@ import java.util.List;
 
 
 /*
- * ABC -> ACB, BCA, BAC, CAB, CBA
+ * ABC -> A(BC) B(AC) 
  * 
- * AB -> BA
  * 
  */
 
@@ -21,45 +22,69 @@ public class StringPermutation {
 	
 	public static void main(String[] args){
 		
-		String s = "ABCDE";
+		String s = "ABCDEFGI";
 		
+		List<String> list = recusive(s.toCharArray());
 		
-		test("ABCD");
+		list.forEach(ss->{
+			System.out.println(ss);
+		});
 	}
 	
-	public static void test(String s){
-		
-		char c = s.charAt(0);
-		
-		char[] array = s.substring(1).toCharArray();
-		
-		System.out.println(tesst(c, array));
-		
-	}
 	
-	public static List<String> tesst(char c, char[] array){
+	public static List<String> recusive(char[] array){
 		
 		List<String> list = new ArrayList<String>();
+		
+		System.gc();
+		
 		if (array.length == 2) {
 			
-			list.add(c + "" + array[0] + array[1]);
+			list.add(array[0] + "" + array[1]);
 			
-			list.add(c + "" + array[1] + array[0]);
+			list.add(array[1] + "" + array[0]);
 		
 		} else {
 			
-			char[] nex = new char[array.length - 1];
-			for (int i = 0; i <nex.length; i ++) {
-				nex[i] = array[i+1];
+			for (int i = 0; i < array.length; i ++) {
+				char c = array[i];
+				
+				List<String> v =  recusive(truncate(array,i));
+				
+				v.forEach(s->{
+					list.add(c+ "" +s);
+				});
 			}
+		}
+		
+		return list;
+	}
+
+	private static char[] truncate(char[] array, int i) {
+		return ArrayUtils.remove(array, i);
+	}
+	
+	public static List<String> doByLinkList(char[] array){
+		
+		List<String> list = new ArrayList<String>();
+		
+		if (array.length == 2) {
 			
-			List<String> v =  tesst(array[0], nex);
+			list.add(array[0] + "" + array[1]);
 			
-			v.forEach(s->{
-				list.add(c+ "" +s);
-			});
+			list.add(array[1] + "" + array[0]);
+		
+		} else {
 			
-			
+			for (int i = 0; i <array.length; i ++) {
+				char c = array[i];
+				
+				List<String> v =  doByLinkList(truncate(array,i));
+				
+				v.forEach(s->{
+					list.add(c+ "" +s);
+				});
+			}
 		}
 		
 		return list;

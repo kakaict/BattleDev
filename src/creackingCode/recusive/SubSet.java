@@ -72,8 +72,6 @@ public class SubSet {
 	
 	public static List<Set<String>> findSubSet(List<Set<String>> list, String n){
 		
-		System.out.println("start n = " + n);
-			
 			Set<String> stong = new HashSet<String>();
 
 			for (Set<String> sm : list) {
@@ -98,9 +96,6 @@ public class SubSet {
 			list.add(sn);
 			
 			list.addAll(slist);
-			
-		
-		System.out.println("get list  = " + list);
 		
 		return list;
 		
