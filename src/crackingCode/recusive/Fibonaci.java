@@ -1,4 +1,4 @@
-package creackingCode.recusive;
+package crackingCode.recusive;
 
 import java.util.LinkedList;
 import java.util.List;

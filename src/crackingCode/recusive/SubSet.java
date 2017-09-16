@@ -1,4 +1,4 @@
-package creackingCode.recusive;
+package crackingCode.recusive;
 
 import java.util.*;
 import java.util.stream.Collectors;
