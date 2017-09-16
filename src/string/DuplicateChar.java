@@ -1,13 +1,13 @@
-package creackingCode.recusive;
+package string;
 
 
 /**
  *
  *khaitq on 16 sept. 2017
  *
- *Find duplicate character in a String, do not use an extra String, Buffer, Collection
+ *Find duplicate character in a String, do not use an additional data struct
  *
- * Note : char -> int (ascii value)   0 - 256 for all characters
+ * Note : char -> int  will get ascii value)   0 - 256 for all characters
  * 
  * -> can use an array of boolean to present all characters
  */
