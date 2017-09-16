@@ -14,6 +14,7 @@ import java.util.List;
  * output: ()()(), ()(()), (())(), ((()))   (()())
  * 
  * 2 paires => ()(), (())
+ * 			 ()()(), ()(()), (())(), ((()))   (()())
  */
 
 public class Parenthese {
@@ -41,7 +42,9 @@ public class Parenthese {
 		
 		if (n  > 2) {
 			//TODO
-			
+			List<String> r2 = getParenthese(n-1);
+
+		
 		}
 		
 		return r;
