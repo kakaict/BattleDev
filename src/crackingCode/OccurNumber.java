@@ -23,7 +23,12 @@ public class OccurNumber {
 	public static void main(String[] args) {
 
 		
-		System.out.println(findNumberOccurOddTime(new int[]{3 ,3 ,4 ,4 ,200, 78, 200}));
+		int t = findNumberOccurOddTime(new int[]{3 ,3 ,4 ,4 ,200, 78, 200});
+		
+		t = findByBitWise(new int[]{3 ,3 ,4 ,4 ,200, 78, 200, 78, 9});
+		
+		System.out.println(t);
+		
 	}
 	
 	public static int findNumberOccurOddTime(int[] arr){
@@ -37,7 +42,19 @@ public class OccurNumber {
 		}
 		return (int) setOfElement.toArray()[0];
 	}
-	
+
+	/*
+	 * XOR : x^X = 0; X^0 =X
+	 */
+	public static int findByBitWise(int[] arr){
+		
+		int t = 0;
+		for (int i: arr) {
+			t = t^i;
+		}
+		
+		return t;
+	}
 	
 
 }
