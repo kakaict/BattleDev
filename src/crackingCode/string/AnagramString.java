@@ -12,9 +12,9 @@ public class AnagramString {
 
 	public static void main(String[] args) {
 
-		String s1 = "FDCAB";
+		String s1 = "ABCDEF";
 		
-		String s2 = "ABCDF";
+		String s2 = "AFBCED";
 		
 		
 		System.out.println(checkAnagrams(s1,s2));
@@ -25,24 +25,27 @@ public class AnagramString {
 
 	private static boolean checkAnagrams(String s1, String s2) {
 
-		boolean [] mask = new boolean[256];
+		int [] mask = new int[256];
 		
 		if (s1.length() != s2.length()) 
 			return false;
 		
-		
-		
  		for (int i = 0; i<s1.length(); i++) {
 			char c = s1.charAt(i);
-			mask[c] = true;
+			mask[c] ++;
 		}
  		
 		for (int i = 0; i<s2.length(); i++) {
 			char c = s2.charAt(i);
-			if (!mask[c]) {
-				return false;
-			}
+			mask[c] --;
 		}
+		
+		for (int i = 0; i<mask.length; i++) {
+			if(mask[i] !=0)
+				return false;
+		}
+		
+		
 		return true;
 	}
 	
