@@ -1,5 +1,8 @@
 package crackingCode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 /**
  *
@@ -20,36 +23,20 @@ public class OccurNumber {
 	public static void main(String[] args) {
 
 		
-		System.out.println(findNumberOccurOddTime(new int[]{3 ,3 ,4 ,4 ,200, 200, 455}));
+		System.out.println(findNumberOccurOddTime(new int[]{3 ,3 ,4 ,4 ,200, 78, 200}));
 	}
 	
 	public static int findNumberOccurOddTime(int[] arr){
 		
-		int r = -1;
+		Set<Integer> setOfElement = new HashSet<Integer>();
 		
-		char[] x = new char[65536];
-		
-		for (int i = 0; i < arr.length; i++) {
-			
-			int t = arr[i];
-			
-			if(x[t] == '\u0000') {
-				x[t] = (char) t;
-			} else {
-				x[t] = '\u0000';
+		for (int i: arr) {
+			if (setOfElement.add(i) == false){
+				setOfElement.remove(i);
 			}
 		}
-		
-		for (int i= 0; i < x.length; i++) {
-			if(x[i] != '\u0000') {
-				return (int)x[i];
-			}
-		}
-		
-		return r;
-		
+		return (int) setOfElement.toArray()[0];
 	}
-	
 	
 	
 
