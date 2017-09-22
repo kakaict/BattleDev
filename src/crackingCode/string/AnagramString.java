@@ -1,5 +1,7 @@
 package crackingCode.string;
 
+import java.util.Arrays;
+
 
 /**
  *
@@ -12,10 +14,12 @@ public class AnagramString {
 
 		String s1 = "FDCAB";
 		
-		String s2 = "FDCAB";
+		String s2 = "ABCDF";
 		
 		
 		System.out.println(checkAnagrams(s1,s2));
+		
+		System.out.println(checkAnagramsByApi(s1,s2));
 		
 	}
 
@@ -40,6 +44,17 @@ public class AnagramString {
 			}
 		}
 		return true;
+	}
+	
+	public static boolean checkAnagramsByApi(String s1, String s2){
+		
+		char[] a1 = s1.toCharArray();
+		Arrays.sort(a1);
+		
+		char[] a2 = s2.toCharArray();
+		Arrays.sort(a2);
+		
+		return Arrays.equals(a1, a2);
 	}
 
 }
