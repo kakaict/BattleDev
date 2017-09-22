@@ -38,6 +38,8 @@ public class AnagramString {
 		for (int i = 0; i<s2.length(); i++) {
 			char c = s2.charAt(i);
 			mask[c] --;
+			if (mask[c] <0)
+				return false;
 		}
 		
 		for (int i = 0; i<mask.length; i++) {
