@@ -1,4 +1,4 @@
-package crackingCode.hackerrank;
+package hackerrank;
 
 
 /**

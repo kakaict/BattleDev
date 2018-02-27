@@ -1,7 +1,5 @@
 package crackingCode.binaryTree;
 
-import java.util.Arrays;
-
 
 /*
  * Find the distance between 2 nodes in binary tree.
@@ -42,6 +40,7 @@ public class SearchInBinraryTree {
 		}
 		
 		Node l = findALC(root.left, n1, n2);
+		
 		Node r = findALC(root.right, n1, n2);
 		
 		
@@ -56,7 +55,9 @@ public class SearchInBinraryTree {
 	}
 	
 	public static int distanceToRoot(Node root, int  n) {
+		
 		if (root == null) return -1;
+		
 		if(root != null && root.data == n) return 0;
 		
 		int l = distanceToRoot(root.right, n);
@@ -65,6 +66,7 @@ public class SearchInBinraryTree {
 		if(l == -1 && r == -1) {
 			return -1;
 		}
+		
 	    return 1 + Math.max(l,r); 
 	}
 	
